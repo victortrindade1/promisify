@@ -6,7 +6,7 @@ O promisify tetifica funções que precisam de callback. O node acima do 8 criou
 uma função no próprio core para facilitar. Está no módulo `util` do Node.
 
 Muitas callbacks são escritas sob a forma de _Promises_, e o código acaba
-ficando grande. Daí veio o promisify para reduzir essas promisses.
+ficando grande. Daí veio o promisify para substituir essas promisses.
 
 ## Callbacks
 
