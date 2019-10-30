@@ -3,7 +3,7 @@
 ## Definição
 
 O promisify tetifica funções que precisam de callback. O node acima do 8 criou
-uma função no próprio core para facilitar. Está na dependência `utils` do Node.
+uma função no próprio core para facilitar. Está no módulo `util` do Node.
 
 Muitas callbacks são escritas sob a forma de _Promises_, e o código acaba
 ficando grande. Daí veio o promisify para reduzir essas promisses.
@@ -16,17 +16,12 @@ esperam um tratamento de erro como sendo último parâmetro da função.
 Ex de uma callback:
 
 ```
-// importa a função writeFile do módulo fs
 const { writeFile } = require("fs");
 
-// recebe o nome do arquivo, conteúdo e o callback
-// para lidar com a operação
 writeFile("arquivo.txt", "conteúdo do arquivo", err => {
-  // verifica se houve algum erro
-  // Se houve, logada e aborta a função
+
   if (err) return console.log(err);
 
-  // se não houve erro
   console.log("arquivo criado com sucesso!");
 });
 ```
@@ -52,13 +47,9 @@ criaArquivo()
 ## Usando promisify
 
 ```
-// O promisify consta no core do Node 8+
-
-// importou promisify do módulo util
-const { promisify } = require("util");
+const { promisify } = require("util"); // importou promisify do módulo util
 const { writeFile } = require("fs");
 
-// promisifica a função writeFile
 const writeFilePromisificado = promisify(writeFile);
 
 writeFilePromisificado("arquivo.txt", "conteúdo arquivo")
@@ -71,7 +62,6 @@ writeFilePromisificado("arquivo.txt", "conteúdo arquivo")
 ```
 const { promisify } = require("util");
 
-// faz o require já promisificando
 const writeFile = promisify(require("fs").writeFile);
 
 (async function() {
