@@ -1,0 +1,9 @@
+{
+  "name": "Callbacks_e_Promisify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
